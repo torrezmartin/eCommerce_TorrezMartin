@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { colors } from '../global/Colors'
+import { colors } from '../Global/Colors'
 
-const Card = ({ children }) => {
+const Card = ({ children, additionalStyles = [] }) => {
     return (
-        <View style={styles.cardContainer}>
+        <View style={[styles.cardContainer, additionalStyles]}>
             {children}
         </View>
     )
@@ -16,14 +16,6 @@ const styles = StyleSheet.create({
     cardContainer: {
         height: 50,
         width: 250,
-        borderWidth: 1,
-        borderColor: 'black',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: colors.two,
-        marginVertical: 5,
-        borderRadius: 5,
-
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -31,6 +23,13 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-        elevation: 5,
+        elevation: 8,
+        borderWidth: 2,
+        borderColor: 'black',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: colors.red,
+        marginVertical: 10,
+        borderRadius: 8,
     }
 })

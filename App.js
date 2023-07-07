@@ -1,12 +1,33 @@
-import { StyleSheet, Text, View } from 'react-native';
-import Header from './src/components/Header';
-import Home from './src/screens/Home';
+import { StyleSheet, View } from 'react-native';
+import { useState } from 'react';
+import Header from './src/Components/Header';
+import ItemListCategory from './src/Screens/ItemListCategory';
+import Home from './src/Screens/Home';
+import { useFonts } from 'expo-font';
 
 export default function App() {
+    const [categorySelected, setCategorySelected] = useState('');
+    const [fontsLoaded] = useFonts({
+        'Montserrat-Light': require('./src/Assets/Fonts/Montserrat-Light.ttf'),
+        'Montserrat-Medium': require('./src/Assets/Fonts/Montserrat-Medium.ttf'),
+        'Montserrat-Regular': require('./src/Assets/Fonts/Montserrat-Regular.ttf'),
+        'VarelaRound-Regular': require('./src/Assets/Fonts/VarelaRound-Regular.ttf'),
+        'YsabeauOffice-Light': require('./src/Assets/Fonts/YsabeauOffice-Light.ttf'),
+        'YsabeauOffice-Medium': require('./src/Assets/Fonts/YsabeauOffice-Medium.ttf'),
+        'YsabeauOffice-Regular': require('./src/Assets/Fonts/YsabeauOffice-Regular.ttf'),
+    });
+
+    if (!fontsLoaded) {
+        return null;
+    }
+
     return (
         <View style={styles.container}>
             <Header />
-            <Home />
+            {
+                categorySelected ? <ItemListCategory category={categorySelected} setCategoryFromApp={setCategorySelected}/> :
+                    <Home setCategorySelected={setCategorySelected}/>
+            }
         </View>
     );
 }
@@ -14,5 +35,5 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-    },
-});
+    }
+})
