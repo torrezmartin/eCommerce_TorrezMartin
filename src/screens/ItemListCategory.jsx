@@ -1,9 +1,9 @@
 import { FlatList, StyleSheet, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import productsRaw from '../Data/products.json'
-import ProductItem from '../Components/ProductItem'
-import { colors } from '../Global/Colors'
-import Search from '../Components/Search'
+import productsRaw from '../data/products.json'
+import ProductItem from '../components/ProductItem'
+import { colors } from '../global/Colors'
+import Search from '../components/Search'
 
 const ItemListCategory = ({ category, setCategoryFromApp }) => {
 

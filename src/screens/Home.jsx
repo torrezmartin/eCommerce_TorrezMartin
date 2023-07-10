@@ -1,8 +1,8 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { colors } from '../Global/Colors'
-import categories from '../Data/categories.json'
-import CategoryItem from '../Components/CategoryItem'
+import { colors } from '../global/Colors'
+import categories from '../data/categories.json'
+import CategoryItem from '../components/CategoryItem'
 
 const Home = ({ setCategorySelected }) => {
     return (

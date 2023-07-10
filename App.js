@@ -1,20 +1,20 @@
 import { StyleSheet, View } from 'react-native';
 import { useState } from 'react';
-import Header from './src/Components/Header';
-import ItemListCategory from './src/Screens/ItemListCategory';
-import Home from './src/Screens/Home';
+import Header from './src/components/Header';
+import ItemListCategory from './src/screens/ItemListCategory';
+import Home from './src/screens/Home';
 import { useFonts } from 'expo-font';
 
 export default function App() {
     const [categorySelected, setCategorySelected] = useState('');
     const [fontsLoaded] = useFonts({
-        'Montserrat-Light': require('./src/Assets/Fonts/Montserrat-Light.ttf'),
-        'Montserrat-Medium': require('./src/Assets/Fonts/Montserrat-Medium.ttf'),
-        'Montserrat-Regular': require('./src/Assets/Fonts/Montserrat-Regular.ttf'),
-        'VarelaRound-Regular': require('./src/Assets/Fonts/VarelaRound-Regular.ttf'),
-        'YsabeauOffice-Light': require('./src/Assets/Fonts/YsabeauOffice-Light.ttf'),
-        'YsabeauOffice-Medium': require('./src/Assets/Fonts/YsabeauOffice-Medium.ttf'),
-        'YsabeauOffice-Regular': require('./src/Assets/Fonts/YsabeauOffice-Regular.ttf'),
+        'Montserrat-Light': require('./src/assets/Fonts/Montserrat-Light.ttf'),
+        'Montserrat-Medium': require('./src/assets/Fonts/Montserrat-Medium.ttf'),
+        'Montserrat-Regular': require('./src/assets/Fonts/Montserrat-Regular.ttf'),
+        'VarelaRound-Regular': require('./src/assets/Fonts/VarelaRound-Regular.ttf'),
+        'YsabeauOffice-Light': require('./src/assets/Fonts/YsabeauOffice-Light.ttf'),
+        'YsabeauOffice-Medium': require('./src/assets/Fonts/YsabeauOffice-Medium.ttf'),
+        'YsabeauOffice-Regular': require('./src/assets/Fonts/YsabeauOffice-Regular.ttf'),
     });
 
     if (!fontsLoaded) {

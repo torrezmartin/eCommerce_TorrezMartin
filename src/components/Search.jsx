@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
-import { colors } from '../Global/Colors';
+import { colors } from '../global/Colors';
 
 const Search = ({ onSearch, errorSearch = '', setCategoryFromApp }) => {
     const [keyword, setKeyword] = useState("")

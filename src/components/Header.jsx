@@ -1,6 +1,6 @@
 import { StatusBar, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { colors } from '../Global/Colors'
+import { colors } from '../global/Colors'
 
 const Header = () => {
     return (
