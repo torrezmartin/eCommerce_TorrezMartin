@@ -5,18 +5,17 @@ import ProductItem from '../Components/ProductItem'
 import { colors } from '../Global/Colors'
 import Search from '../Components/Search'
 
-const ItemListCategory = ({ category, setCategoryFromApp }) => {
+const ItemListCategory = ({ category, setCategorySelected, setProductSelected }) => {
 
-    const [categorySelected, setCategorySelected] = useState(category)
     const [products, setProducts] = useState([])
     const [keyword, setKeyword] = useState("")
     const [keywordError, setKeywordError] = useState('')
 
     useEffect(() => {
-        const productsFiltered = productsRaw.filter(product => product.category === categorySelected && product.title.toLowerCase().includes(keyword.toLowerCase()))
+        const productsFiltered = productsRaw.filter(product => product.category === category && product.title.toLowerCase().includes(keyword.toLowerCase()))
         setProducts(productsFiltered)
 
-    }, [categorySelected, keyword])
+    }, [category, keyword])
 
     const onSearch = (input) => {
         const regExp = /^[a-zA-Z0-9\ ]*$/
@@ -35,12 +34,12 @@ const ItemListCategory = ({ category, setCategoryFromApp }) => {
             <Search
                 onSearch={onSearch}
                 errorSearch={keywordError}
-                setCategoryFromApp={setCategoryFromApp}
+                setCategorySelected={setCategorySelected}
             />
             <FlatList
                 data={products}
                 keyExtractor={product => product.id}
-                renderItem={({ item }) => ProductItem({ item })}
+                renderItem={({ item }) => <ProductItem item={item} setProductSelected={setProductSelected} />}
                 showsVerticalScrollIndicator={false}
             />
         </View>

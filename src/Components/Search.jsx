@@ -1,17 +1,18 @@
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Pressable, StyleSheet, Text, TextInput, View, useWindowDimensions } from 'react-native'
 import React, { useState } from 'react'
 import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { colors } from '../Global/Colors';
 
-const Search = ({ onSearch, errorSearch = '', setCategoryFromApp }) => {
-    const [keyword, setKeyword] = useState("")
+const Search = ({ onSearch, errorSearch = '', setCategorySelected }) => {
+    const [keyword, setKeyword] = useState('')
+    const {height, width} = useWindowDimensions();
 
     return (
         <View style={[styles.container, styles.viewFDcolumn]}>
             <Pressable onPress={() => {
-                setCategoryFromApp("")
+                setCategorySelected('')
             }}>
                 <AntDesign name="arrowleft" size={24} color="black" />
             </Pressable>
@@ -40,7 +41,6 @@ export default Search
 
 const styles = StyleSheet.create({
     container: {
-        height: '10%',
         padding: 10,
     },
     input: {

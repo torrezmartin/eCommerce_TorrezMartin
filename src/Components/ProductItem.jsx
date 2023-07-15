@@ -1,20 +1,23 @@
-import { StyleSheet, Text } from 'react-native'
+import { Pressable, StyleSheet, Text, Image } from 'react-native'
 import React from 'react'
 import Card from './Card'
-import { Image } from 'react-native'
 
-const ProductItem = ({ item }) => {
+const ProductItem = ({ item, setProductSelected }) => {
     return (
-        <Card
-            additionalStyles={styles.additionalStylesCard}
+        <Pressable
+            onPress={() => setProductSelected(item.id)}
         >
-            <Text style={styles.textCategory}>{item.title}</Text>
-            <Image
-                resizeMode='cover'
-                style={styles.image}
-                source={{ uri: item.images[0] }}
-            />
-        </Card>
+            <Card
+                additionalStyles={styles.additionalStylesCard}
+            >
+                <Text style={styles.textCategory}>{item.title}</Text>
+                <Image
+                    resizeMode='cover'
+                    style={styles.image}
+                    source={{ uri: item.images[0] }}
+                />
+            </Card>
+        </Pressable>
     )
 }
 
@@ -23,7 +26,9 @@ export default ProductItem
 const styles = StyleSheet.create({
     image: {
         height: 110,
-        width: 100,
+        width: '40%',
+        minWidth: 100,
+        maxWidth: 250,
         borderRadius: 8,
     },
     additionalStylesCard: {
@@ -33,6 +38,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 5
     },
     textCategory: {
-        fontFamily: 'YsabeauOffice-Regular'
+        fontFamily: 'YsabeauOffice-Regular',
+        width: '50%'
     }
 })
