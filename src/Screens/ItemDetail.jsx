@@ -4,20 +4,21 @@ import productsRaw from '../Data/products.json'
 import { AntDesign } from '@expo/vector-icons';
 import { colors } from '../Global/Colors'
 
-const ItemDetail = ({ productSelected, setProductSelected }) => {
+const ItemDetail = ({ navigation, route }) => {
     const [product, setProduct] = useState({})
-    console.log(product)
+
+    const { item } = route.params
 
     useEffect(() => {
-        const productsFiltered = productsRaw.find(product => product.id === productSelected)
+        const productsFiltered = productsRaw.find(product => product.id === item)
         setProduct(productsFiltered)
-    }, [productSelected])
+    }, [item])
 
     return (
         <>
             {product.images ?
                 <View style={styles.container}>
-                    <Pressable onPress={() => { setProductSelected('') }}>
+                    <Pressable onPress={() => navigation.goBack()}>
                         <AntDesign name="arrowleft" size={24} color="black" />
                     </Pressable>
                     <Image
@@ -39,7 +40,7 @@ export default ItemDetail
 
 const styles = StyleSheet.create({
     container: {
-        height: '90%',
+        height: '100%',
         backgroundColor: colors.lightPink,
         alignItems: 'flex-start',
         paddingHorizontal: 10,

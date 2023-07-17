@@ -5,15 +5,13 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { colors } from '../Global/Colors';
 
-const Search = ({ onSearch, errorSearch = '', setCategorySelected }) => {
+const Search = ({ navigation, onSearch, errorSearch = '', setCategorySelected }) => {
     const [keyword, setKeyword] = useState('')
     const {height, width} = useWindowDimensions();
 
     return (
         <View style={[styles.container, styles.viewFDcolumn]}>
-            <Pressable onPress={() => {
-                setCategorySelected('')
-            }}>
+            <Pressable onPress={() => { navigation.goBack() }}>
                 <AntDesign name="arrowleft" size={24} color="black" />
             </Pressable>
             <View style={[styles.search, styles.viewFDrow]}>

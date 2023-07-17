@@ -5,7 +5,9 @@ import ProductItem from '../Components/ProductItem'
 import { colors } from '../Global/Colors'
 import Search from '../Components/Search'
 
-const ItemListCategory = ({ category, setCategorySelected, setProductSelected }) => {
+const ItemListCategory = ({ navigation, route }) => {
+
+    const { category } = route.params
 
     const [products, setProducts] = useState([])
     const [keyword, setKeyword] = useState("")
@@ -34,12 +36,12 @@ const ItemListCategory = ({ category, setCategorySelected, setProductSelected })
             <Search
                 onSearch={onSearch}
                 errorSearch={keywordError}
-                setCategorySelected={setCategorySelected}
+                navigation={navigation}
             />
             <FlatList
                 data={products}
                 keyExtractor={product => product.id}
-                renderItem={({ item }) => <ProductItem item={item} setProductSelected={setProductSelected} />}
+                renderItem={({ item }) => <ProductItem item={item} navigation={navigation} />}
                 showsVerticalScrollIndicator={false}
             />
         </View>
@@ -50,7 +52,7 @@ export default ItemListCategory
 
 const styles = StyleSheet.create({
     container: {
-        height: '90%',
+        height: '100%',
         backgroundColor: colors.lightPink,
         alignItems: 'center'
     }
