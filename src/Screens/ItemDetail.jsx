@@ -1,7 +1,6 @@
 import { Button, Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import productsRaw from '../Data/products.json'
-import { AntDesign } from '@expo/vector-icons';
 import { colors } from '../Global/Colors'
 
 const ItemDetail = ({ navigation, route }) => {
@@ -18,9 +17,6 @@ const ItemDetail = ({ navigation, route }) => {
         <>
             {product.images ?
                 <View style={styles.container}>
-                    <Pressable onPress={() => navigation.goBack()}>
-                        <AntDesign name="arrowleft" size={24} color="black" />
-                    </Pressable>
                     <Image
                         resizeMode='cover'
                         style={styles.image}

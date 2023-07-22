@@ -1,43 +1,60 @@
-import { SafeAreaView, StyleSheet, View } from 'react-native'
 import React from 'react'
-import Header from '../Components/Header';
-import ItemDetail from '../Screens/ItemDetail';
-import ItemListCategory from '../Screens/ItemListCategory';
-import Home from '../Screens/Home';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ShopStack from './ShopStack';
+import CartStack from './CartStack';
 
-const Stack = createNativeStackNavigator();
+import { SafeAreaView, StyleSheet, View } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native';
+import { Entypo } from '@expo/vector-icons'; 
+import { Feather } from '@expo/vector-icons';
+
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { colors } from '../Global/Colors';
+import OrderStack from './OrderStack';
+
+const Tab = createBottomTabNavigator();
 
 const Navigator = () => {
     return (
         <SafeAreaView style={styles.container}>
             <NavigationContainer>
-                <Stack.Navigator
-                    initialRouteName='Home'
-                    screenOptions={
-                        ({route}) => (
-                            {
-                                header: () => {
-                                    return <Header title={
-                                        route.name === "Home" ? "Inicio" :
-                                        route.name === "ItemListCategory" ? route.params.category :
-                                        route.params.itemName
-                                    }/>
-                                }
-                            }
-                        )
-                    }
+                <Tab.Navigator
+                    screenOptions={{
+                        headerShown: false,
+                        tabBarShowLabel: false,
+                        tabBarStyle: styles.tabBarSt
+                    }}
                 >
-                    <Stack.Screen name='Home' component={Home} />
-                    <Stack.Screen name='ItemListCategory' component={ItemListCategory} />
-                    <Stack.Screen name='ItemDetail' component={ItemDetail} />
-                </Stack.Navigator>
-                {/*
-                    productSelected ? <ItemDetail productSelected={productSelected} setProductSelected={setProductSelected} /> :
-                        categorySelected ? <ItemListCategory category={categorySelected} setCategorySelected={setCategorySelected} setProductSelected={setProductSelected} /> :
-                            <Home setCategorySelected={setCategorySelected} />
-                */}
+                    <Tab.Screen name='Shop' component={ShopStack}
+                        options={{
+                            tabBarIcon: ({ focused }) => {
+                                return (
+                                    <View>
+                                        <Entypo name="shop" size={24} color={focused ? "black" : "gray"} />
+                                    </View>
+                                );
+                            }
+                        }} />
+                    <Tab.Screen name='Cart' component={CartStack}
+                        options={{
+                            tabBarIcon: ({ focused }) => {
+                                return (
+                                    <View>
+                                        <Feather name="shopping-cart" size={24} color={focused ? "black" : "gray"} />
+                                    </View>
+                                );
+                            }
+                        }} />
+                    <Tab.Screen name='Order' component={OrderStack}
+                        options={{
+                            tabBarIcon: ({ focused }) => {
+                                return (
+                                    <View>
+                                        <Feather name="list" size={24} color={focused ? "black" : "gray"} />
+                                    </View>
+                                );
+                            }
+                        }} />
+                </Tab.Navigator>
             </NavigationContainer>
         </SafeAreaView>
     )
@@ -48,5 +65,9 @@ export default Navigator
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+    },
+    tabBarSt: {
+        backgroundColor: colors.lightPink,
+        height: 90
     }
 })

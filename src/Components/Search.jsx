@@ -2,7 +2,6 @@ import { Pressable, StyleSheet, Text, TextInput, View, useWindowDimensions } fro
 import React, { useState } from 'react'
 import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
-import { AntDesign } from '@expo/vector-icons';
 import { colors } from '../Global/Colors';
 
 const Search = ({ navigation, onSearch, errorSearch = '', setCategorySelected }) => {
@@ -11,9 +10,6 @@ const Search = ({ navigation, onSearch, errorSearch = '', setCategorySelected })
 
     return (
         <View style={[styles.container, styles.viewFDcolumn]}>
-            <Pressable onPress={() => { navigation.goBack() }}>
-                <AntDesign name="arrowleft" size={24} color="black" />
-            </Pressable>
             <View style={[styles.search, styles.viewFDrow]}>
                 <TextInput style={styles.input}
                     placeholder='Search...'

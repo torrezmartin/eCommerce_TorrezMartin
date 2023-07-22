@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     container: {
         height: '100%',
         backgroundColor: colors.lightPink,
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingBottom: 10
     }
 })

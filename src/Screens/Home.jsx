@@ -22,6 +22,7 @@ export default Home
 const styles = StyleSheet.create({
     container: {
         backgroundColor: colors.lightPink,
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingBottom: 10
     }
 })
