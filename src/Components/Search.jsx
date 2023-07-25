@@ -1,12 +1,10 @@
-import { Pressable, StyleSheet, Text, TextInput, View, useWindowDimensions } from 'react-native'
-import React, { useState } from 'react'
-import { FontAwesome } from '@expo/vector-icons';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome, FontAwesome5 } from '@expo/vector-icons';
+import React, { useState } from 'react';
+import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { colors } from '../Global/Colors';
 
-const Search = ({ navigation, onSearch, errorSearch = '', setCategorySelected }) => {
+const Search = ({ onSearch, errorSearch = '' }) => {
     const [keyword, setKeyword] = useState('')
-    const {height, width} = useWindowDimensions();
 
     return (
         <View style={[styles.container, styles.viewFDcolumn]}>

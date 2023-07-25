@@ -4,7 +4,7 @@ import CartStack from './CartStack';
 
 import { SafeAreaView, StyleSheet, View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
-import { Entypo } from '@expo/vector-icons'; 
+import { Entypo } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';

@@ -2,6 +2,7 @@ import { Pressable, StatusBar, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { colors } from '../Global/Colors'
 import { AntDesign } from '@expo/vector-icons';
+import { useSelector } from 'react-redux';
 
 const Header = ({ route, navigation }) => {
     let title
@@ -16,10 +17,10 @@ const Header = ({ route, navigation }) => {
             title = 'Inicio Order'
             break;
         case 'ItemListCategory':
-            title = route.params.category
+            title = useSelector(state => state.shopReducer.value.categorySelected)
             break;
         case 'ItemDetail':
-            title = route.params.itemName
+            title = useSelector(state => state.shopReducer.value.nameProductSelected)
             break;
         default:
             title = route.name
