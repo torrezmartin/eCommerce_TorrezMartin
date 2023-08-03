@@ -1,15 +1,20 @@
 import { Button, Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { colors } from '../Global/Colors'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useGetProductByIdQuery } from '../Services/shopServices'
+import { setNameProductSelected } from '../Features/Shop/shopSlice'
+import { addCartItem } from '../Features/Cart/cartSlice'
 
 const ItemDetail = ({ navigation, route }) => {
-    //const item = useSelector(state => state.shopReducer.value.idSelected)
-    const product = useSelector(state => state.shopReducer.value.productSelected)
+    const item = useSelector(state => state.shopReducer.value.idSelected)
+    const { data: product, isLoading, isError } = useGetProductByIdQuery(item);
+
+    const dispatch = useDispatch()
 
     return (
         <>
-            {product.images ?
+            {product ?
                 <View style={styles.container}>
                     <Image
                         resizeMode='cover'
@@ -19,7 +24,10 @@ const ItemDetail = ({ navigation, route }) => {
                     <Text>Nombre: {product.title}</Text>
                     <Text>Descripción: {product.description}</Text>
                     <Text>Valor: ${product.price}</Text>
-                    <Button title='Agregar al carrito' />
+                    <Button
+                        title='Agregar al carrito'
+                        onPress={() => dispatch(addCartItem({ ...product, quantity: 1 }))}
+                    />
                 </View>
                 : null}
         </>

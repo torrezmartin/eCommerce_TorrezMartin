@@ -2,13 +2,14 @@ import { Pressable, StyleSheet, Text, Image } from 'react-native'
 import React from 'react'
 import Card from './Card'
 import { useDispatch } from 'react-redux'
-import { setIdSelected } from "../Features/Shop/shopSlice";
+import { setIdSelected, setNameProductSelected } from "../Features/Shop/shopSlice";
 
 const ProductItem = ({ item, navigation }) => {
     const dispatch = useDispatch()
     const onItemSelected = () => {
         navigation.navigate('ItemDetail')
         dispatch(setIdSelected(item.id))
+        dispatch(setNameProductSelected(item.title))
     }
 
     return (

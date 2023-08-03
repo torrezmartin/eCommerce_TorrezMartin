@@ -3,10 +3,10 @@ import React from 'react'
 import { colors } from '../Global/Colors'
 import CategoryItem from '../Components/CategoryItem'
 import Counter from '../Components/Counter'
-import { useSelector } from 'react-redux'
+import { useGetCategoriesQuery } from '../Services/shopServices'
 
 const Home = ({ navigation }) => {
-    const categories = useSelector(state => state.shopReducer.value.allCategories)
+    const { data: categories, isLoading, isError } = useGetCategoriesQuery();
 
     return (
         <View style={styles.container}>
