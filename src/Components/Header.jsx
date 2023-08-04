@@ -30,7 +30,7 @@ const Header = ({ route, navigation }) => {
     return (
         <View style={styles.containerHeader}>
             <StatusBar show='false' />
-            {title !== 'Inicio' && title !== 'Inicio Cart' && title !== 'Inicio Order' ?
+            {title !== 'Inicio' && title !== 'Inicio Cart' && title !== 'Inicio Order' && title !== 'Signup' && title !== 'Login' ?
                 <Pressable onPress={() => { navigation.goBack() }}>
                     <AntDesign name="arrowleft" size={24} color="black" />
                 </Pressable>
