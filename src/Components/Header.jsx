@@ -1,8 +1,9 @@
-import { Pressable, StatusBar, StyleSheet, Text, View } from 'react-native'
+import { Button, Pressable, StatusBar, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { colors } from '../Global/Colors'
 import { AntDesign } from '@expo/vector-icons';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { logOut } from '../Features/User/userSlice';
 
 const Header = ({ route, navigation }) => {
     let title
@@ -27,15 +28,24 @@ const Header = ({ route, navigation }) => {
             break;
     }
 
+    const dispatch = useDispatch()
+
     return (
         <View style={styles.containerHeader}>
             <StatusBar show='false' />
-            {title !== 'Inicio' && title !== 'Inicio Cart' && title !== 'Inicio Order' && title !== 'Signup' && title !== 'Login' ?
+            {title !== 'Inicio' && title !== 'Inicio Cart' && title !== 'Inicio Order' &&
+                title !== 'Signup' && title !== 'Login' && title !== 'My Profile' ?
                 <Pressable onPress={() => { navigation.goBack() }}>
                     <AntDesign name="arrowleft" size={24} color="black" />
                 </Pressable>
                 : null}
             <Text style={styles.text}>{title}</Text>
+            {title !== 'Signup' && title !== 'Login' ?
+                <Button
+                    title='Cerrar sesión'
+                    onPress={() => dispatch(logOut())}
+                />
+                : null}
         </View>
     )
 }

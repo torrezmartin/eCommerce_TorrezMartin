@@ -7,6 +7,7 @@ import { useSignUpMutation } from "../Services/authServices";
 import { useDispatch } from "react-redux";
 import { setUser } from "../Features/User/userSlice";
 import { isAtLeastSixCharacters, isValidEmail } from "../Validations/auth";
+import { setUserCart } from "../Features/Cart/cartSlice";
 
 const SignupScreen = ({ navigation }) => {
     const [email, setEmail] = useState("");
@@ -26,9 +27,12 @@ const SignupScreen = ({ navigation }) => {
             dispatch(
                 setUser({
                     email: result.data.email,
-                    idToken: result.data.idToken
+                    idToken: result.data.idToken,
+                    localId: result.data.localId,
+                    profileImage: ""
                 })
             )
+            dispatch(setUserCart(result.data.email))
         }
     }, [result])
 

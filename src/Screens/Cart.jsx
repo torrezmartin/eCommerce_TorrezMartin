@@ -2,15 +2,24 @@ import { Button, FlatList, Pressable, StyleSheet, Text, View } from 'react-nativ
 import React from 'react'
 import CartItem from '../Components/CartItem'
 import { colors } from '../Global/Colors'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { usePostCartMutation } from '../Services/shopServices'
+import { useEffect } from 'react'
+import { removeFullCart } from '../Features/Cart/cartSlice'
 
 const Cart = () => {
     const { total, items: CartData, user, updatedAt } = useSelector(state => state.cartReducer.value)
     const [triggerPost, result] = usePostCartMutation()
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        if (result.isSuccess) {
+            dispatch(removeFullCart())
+        }
+    }, [result])
 
     const confirmCart = () => {
-        triggerPost({total, items: CartData, user, updatedAt})
+        triggerPost({total, items: CartData, user, updatedAt, id: updatedAt})
     }
 
     return (

@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     },
     text: {
         color: colors.lightPink,
-        fontFamily: 'PlayFair',
+        fontFamily: 'Montserrat-Regular',
         fontSize: 22
     },
 });

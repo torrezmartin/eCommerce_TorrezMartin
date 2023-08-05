@@ -1,17 +1,17 @@
-import React from 'react'
-import ShopStack from './ShopStack';
-import CartStack from './CartStack';
-
-import { SafeAreaView, StyleSheet, View } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native';
-import { Entypo } from '@expo/vector-icons';
-import { Feather } from '@expo/vector-icons';
-
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { colors } from '../Global/Colors';
-import OrderStack from './OrderStack';
-import AuthStack from './AuthStack';
+import React from 'react';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import { Entypo, Feather, Ionicons } from '@expo/vector-icons';
+import { colors } from '../Global/Colors';
+
+import AuthStack from './AuthStack';
+import CartStack from './CartStack';
+import MyProfileStack from './MyProfileStack';
+import OrderStack from './OrderStack';
+import ShopStack from './ShopStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -59,6 +59,17 @@ const Navigator = () => {
                                     );
                                 }
                             }} />
+                        <Tab.Screen name="MyProfile" component={MyProfileStack}
+                            options={{
+                                tabBarIcon: ({ focused }) => {
+                                    return (
+                                        <View style={styles.item}>
+                                            <Ionicons name="person-circle-outline" size={24} color={focused ? 'black' : 'gray'} />
+                                        </View>
+                                    );
+                                },
+                            }}
+                        />
                     </Tab.Navigator>
 
                     :

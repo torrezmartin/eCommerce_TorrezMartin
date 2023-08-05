@@ -8,6 +8,7 @@ import { useState } from 'react'
 import { useLoginMutation } from '../Services/authServices'
 import { setUser } from '../Features/User/userSlice'
 import { useDispatch } from 'react-redux'
+import { setUserCart } from '../Features/Cart/cartSlice'
 
 const LoginScreen = ({ navigation }) => {
     const [email, setEmail] = useState("");
@@ -23,9 +24,12 @@ const LoginScreen = ({ navigation }) => {
             dispatch(
                 setUser({
                     email: result.data.email,
-                    idToken: result.data.idToken
+                    idToken: result.data.idToken,
+                    localId: result.data.localId,
+                    profileImage: ""
                 })
             )
+            dispatch(setUserCart(result.data.email))
         }
     }, [result])
 
