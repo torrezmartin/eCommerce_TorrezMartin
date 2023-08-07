@@ -20,8 +20,6 @@ const SignupScreen = ({ navigation }) => {
     const [triggerSignUp, result] = useSignUpMutation()
     const dispatch = useDispatch()
 
-    console.log(result);
-
     useEffect(()=> {
         if (result.isSuccess) {
             dispatch(
@@ -29,7 +27,12 @@ const SignupScreen = ({ navigation }) => {
                     email: result.data.email,
                     idToken: result.data.idToken,
                     localId: result.data.localId,
-                    profileImage: ""
+                    profileImage: "",
+                    location: {
+                        latitude: "",
+                        longitude: "",
+                        address: ""
+                    },
                 })
             )
             dispatch(setUserCart(result.data.email))

@@ -37,8 +37,6 @@ const ImageSelector = ({ navigation }) => {
                 quality: 1,
             });
 
-            console.log(result.assets);
-
             if (!result.canceled) {
                 setImage(result.assets[0].uri);
             }
@@ -53,7 +51,6 @@ const ImageSelector = ({ navigation }) => {
                 console.log("Only valid on emulators and physical devices");
                 // Save image to media library and create an asset
                 const response = await MediaLibrary.createAssetAsync(image);
-                console.log(response.uri);
                 //Save image link on profileImages remote location
                 triggerSaveImage({
                     image: response.uri,

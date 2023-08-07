@@ -4,14 +4,13 @@ import { colors } from '../Global/Colors'
 import CategoryItem from '../Components/CategoryItem'
 import Counter from '../Components/Counter'
 import { useGetCategoriesQuery } from '../Services/shopServices'
-import { logOut } from '../Features/User/userSlice'
 
 const Home = ({ navigation }) => {
     const { data: categories, isLoading, isError } = useGetCategoriesQuery();
 
     return (
         <View style={styles.container}>
-            <Counter />
+            {/* <Counter /> */}
             <FlatList
                 data={categories}
                 keyExtractor={category => category}
