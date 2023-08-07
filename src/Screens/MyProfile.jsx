@@ -38,7 +38,7 @@ const MyProfile = ({ navigation }) => {
                 />
             )}
             <AddButton onPress={launchCamera} title="Agrega una foto de perfil" />
-            <AddButton onPress={launchLocation} title="My address" />
+            <AddButton onPress={launchLocation} title="Mi dirección" />
         </View>
     );
 };
