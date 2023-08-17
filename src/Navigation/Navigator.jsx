@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -12,10 +12,42 @@ import CartStack from './CartStack';
 import MyProfileStack from './MyProfileStack';
 import OrderStack from './OrderStack';
 import ShopStack from './ShopStack';
+import { getSession } from '../SQLite';
+import { setUser } from '../Features/User/userSlice';
+import { setUserCart } from '../Features/Cart/cartSlice';
 
 const Tab = createBottomTabNavigator();
 
 const Navigator = () => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        (async () => {
+            try {
+                console.log('Getting session...');
+                const session = await getSession()
+                console.log('Sesion: ');
+                console.log(session);
+                if (session?.rows.length) {
+                    const user = session.rows._array[0]
+                    dispatch(setUser({
+                        ...user,
+                        profileImage: "",
+                        location: {
+                            latitude: "",
+                            longitude: "",
+                            address: ""
+                        },
+                    }))
+                    dispatch(setUserCart(user.email))
+                }
+            } catch (error) {
+                console.log('Error getting session');
+                console.log(error.message);
+            }
+        })()
+    }, [])
+
     const { email } = useSelector(state => state.userReducer.value)
 
     return (

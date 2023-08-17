@@ -9,6 +9,7 @@ import { useLoginMutation } from '../Services/authServices'
 import { setUser } from '../Features/User/userSlice'
 import { useDispatch } from 'react-redux'
 import { setUserCart } from '../Features/Cart/cartSlice'
+import { insertSession } from '../SQLite'
 
 const LoginScreen = ({ navigation }) => {
     const [email, setEmail] = useState("");
@@ -20,22 +21,37 @@ const LoginScreen = ({ navigation }) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if (result.isSuccess) {
-            dispatch(
-                setUser({
-                    email: result.data.email,
-                    idToken: result.data.idToken,
-                    localId: result.data.localId,
-                    profileImage: "",
-                    location: {
-                        latitude: "",
-                        longitude: "",
-                        address: ""
-                    },
-                })
-            )
-            dispatch(setUserCart(result.data.email))
-        }
+        (async () => {
+            try {
+                if (result.isSuccess) {
+                    console.log('inserting Session');
+                    const response = await insertSession({
+                        idToken: result.data.idToken,
+                        localId: result.data.localId,
+                        email: result.data.email,
+                    })
+                    console.log('Session inserted: ');
+                    console.log(response);
+
+                    dispatch(
+                        setUser({
+                            email: result.data.email,
+                            idToken: result.data.idToken,
+                            localId: result.data.localId,
+                            profileImage: "",
+                            location: {
+                                latitude: "",
+                                longitude: "",
+                                address: ""
+                            },
+                        })
+                    )
+                    dispatch(setUserCart(result.data.email))
+                }
+            } catch (error) {
+                console.log(error.message);
+            }
+        })()
     }, [result])
 
     const onSubmit = () => {

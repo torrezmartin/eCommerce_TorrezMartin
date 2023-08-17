@@ -4,6 +4,7 @@ import { colors } from '../Global/Colors'
 import { AntDesign } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../Features/User/userSlice';
+import { deleteSession } from '../SQLite';
 
 const Header = ({ route, navigation }) => {
     let title
@@ -29,6 +30,20 @@ const Header = ({ route, navigation }) => {
     }
 
     const dispatch = useDispatch()
+    const { localId } = useSelector((state) => state.userReducer.value);
+
+    const onSignOut = async () => {
+        try {
+            console.log("Deleting session...");
+            const response = await deleteSession(localId)
+            console.log("Session deleted: ")
+            console.log(response)
+            dispatch(logOut())
+        } catch (error) {
+            console.log('Error while sign out:')
+            console.log(error.message);
+        }
+    }
 
     return (
         <View style={styles.containerHeader}>
@@ -43,7 +58,7 @@ const Header = ({ route, navigation }) => {
             {title !== 'Signup' && title !== 'Login' ?
                 <Button
                     title='Cerrar sesión'
-                    onPress={() => dispatch(logOut())}
+                    onPress={onSignOut}
                 />
                 : null}
         </View>

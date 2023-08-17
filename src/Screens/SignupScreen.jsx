@@ -20,23 +20,38 @@ const SignupScreen = ({ navigation }) => {
     const [triggerSignUp, result] = useSignUpMutation()
     const dispatch = useDispatch()
 
-    useEffect(()=> {
-        if (result.isSuccess) {
-            dispatch(
-                setUser({
-                    email: result.data.email,
-                    idToken: result.data.idToken,
-                    localId: result.data.localId,
-                    profileImage: "",
-                    location: {
-                        latitude: "",
-                        longitude: "",
-                        address: ""
-                    },
-                })
-            )
-            dispatch(setUserCart(result.data.email))
-        }
+    useEffect(() => {
+        (async () => {
+            try {
+                if (result.isSuccess) {
+                    console.log('inserting Session');
+                    const response = await insertSession({
+                        idToken: result.data.idToken,
+                        localId: result.data.localId,
+                        email: result.data.email,
+                    })
+                    console.log('Session inserted: ');
+                    console.log(response);
+
+                    dispatch(
+                        setUser({
+                            email: result.data.email,
+                            idToken: result.data.idToken,
+                            localId: result.data.localId,
+                            profileImage: "",
+                            location: {
+                                latitude: "",
+                                longitude: "",
+                                address: ""
+                            },
+                        })
+                    )
+                    dispatch(setUserCart(result.data.email))
+                }
+            } catch (error) {
+                console.log(error.message);
+            }
+        })()
     }, [result])
 
     const onSubmit = () => {
@@ -54,11 +69,11 @@ const SignupScreen = ({ navigation }) => {
                 triggerSignUp(request)
             }
 
-            if (!isValidVariableEmail) setErrorMail ('Correo inválido')
+            if (!isValidVariableEmail) setErrorMail('Correo inválido')
             else setErrorMail('')
-            if (!isCorrectPassword) setErrorPassword ('La clave debe tener como mínimo 6 caracteres')
+            if (!isCorrectPassword) setErrorPassword('La clave debe tener como mínimo 6 caracteres')
             else setErrorPassword('')
-            if (!isRepeatedPasswordCorrect) setErrorConfirmPassword ('Las claves no coinciden')
+            if (!isRepeatedPasswordCorrect) setErrorConfirmPassword('Las claves no coinciden')
             else setErrorConfirmPassword('')
 
         } catch (err) {
