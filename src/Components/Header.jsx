@@ -34,14 +34,9 @@ const Header = ({ route, navigation }) => {
 
     const onSignOut = async () => {
         try {
-            console.log("Deleting session...");
             const response = await deleteSession(localId)
-            console.log("Session deleted: ")
-            console.log(response)
             dispatch(logOut())
         } catch (error) {
-            console.log('Error while sign out:')
-            console.log(error.message);
         }
     }
 
@@ -76,6 +71,6 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 25,
-        fontFamily: 'VarelaRound-Regular'
+        fontFamily: 'Montserrat-Regular'
     }
 })

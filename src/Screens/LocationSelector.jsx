@@ -57,7 +57,6 @@ const LocationSelector = ({ navigation }) => {
                 });
 
             } catch (error) {
-                console.log(error.message);
                 setError(error.message)
             }
         })()

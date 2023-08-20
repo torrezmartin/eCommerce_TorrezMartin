@@ -24,14 +24,11 @@ const SignupScreen = ({ navigation }) => {
         (async () => {
             try {
                 if (result.isSuccess) {
-                    console.log('inserting Session');
                     const response = await insertSession({
                         idToken: result.data.idToken,
                         localId: result.data.localId,
                         email: result.data.email,
                     })
-                    console.log('Session inserted: ');
-                    console.log(response);
 
                     dispatch(
                         setUser({
@@ -49,7 +46,6 @@ const SignupScreen = ({ navigation }) => {
                     dispatch(setUserCart(result.data.email))
                 }
             } catch (error) {
-                console.log(error.message);
             }
         })()
     }, [result])
@@ -77,8 +73,6 @@ const SignupScreen = ({ navigation }) => {
             else setErrorConfirmPassword('')
 
         } catch (err) {
-            console.log("Catch error");
-            console.log(err.message);
         }
     };
 

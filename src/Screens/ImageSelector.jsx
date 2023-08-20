@@ -48,7 +48,6 @@ const ImageSelector = ({ navigation }) => {
             // Request device storage access permission
             const { status } = await MediaLibrary.requestPermissionsAsync();
             if (status === "granted") {
-                console.log("Only valid on emulators and physical devices");
                 // Save image to media library and create an asset
                 const response = await MediaLibrary.createAssetAsync(image);
                 //Save image link on profileImages remote location
@@ -60,7 +59,6 @@ const ImageSelector = ({ navigation }) => {
                 dispatch(saveImage(response.uri));
             }
         } catch (error) {
-            console.log(error);
         }
         navigation.goBack();
     };
