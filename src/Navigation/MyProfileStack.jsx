@@ -11,17 +11,17 @@ const Stack = createNativeStackNavigator();
 const MyProfileStack = () => {
     return (
         <Stack.Navigator
-            initialRouteName="My Profile"
+            initialRouteName="Mi Perfil"
             screenOptions={({ route, navigation }) => ({
                 header: () => {
                     return <Header route={route} navigation={navigation} />;
                 },
             })}
         >
-            <Stack.Screen name="My Profile" component={MyProfile} />
-            <Stack.Screen name="Image Selector" component={ImageSelector} />
-            <Stack.Screen name="List Address" component={ListAddress}/>
-            <Stack.Screen name="Location Selector" component={LocationSelector} />
+            <Stack.Screen name="Mi Perfil" component={MyProfile} />
+            <Stack.Screen name="Selector de imagen" component={ImageSelector} />
+            <Stack.Screen name="Direcciones" component={ListAddress}/>
+            <Stack.Screen name="Selector de ubicación" component={LocationSelector} />
         </Stack.Navigator>
     );
 };

@@ -16,7 +16,7 @@ const CartItem = ({ cartItem }) => {
                 <Text style={styles.text2}>${cartItem.price}</Text>
             </View>
             <Pressable onPress={() => dispatch(removeCartItem(cartItem.id))}>
-                <Entypo name="trash" size={30} color="black" />
+                <Entypo name="trash" size={30} color={colors.abc5} />
             </Pressable>
         </View>
     );
@@ -27,10 +27,10 @@ export default CartItem;
 const styles = StyleSheet.create({
     card: {
         height: 100,
-        backgroundColor: colors.red,
+        backgroundColor: colors.abc3,
         padding: 10,
         margin: 10,
-        borderWidth: 2,
+        borderWidth: 1,
         borderRadius: 10,
         flexDirection: "row",
         justifyContent: "space-between",
@@ -43,13 +43,13 @@ const styles = StyleSheet.create({
         alignItems: "flex-start",
     },
     text: {
-        fontFamily: "YsabeauOffice-Regular",
+        fontFamily: "NuevaFuenteAPedidoDelTutor",
         fontSize: 19,
-        color: 'black',
+        color: colors.abc5,
     },
     text2: {
-        fontFamily: "YsabeauOffice-Regular",
+        fontFamily: "NuevaFuenteAPedidoDelTutor",
         fontSize: 14,
-        color: 'black',
+        color: colors.abc5,
     },
 });

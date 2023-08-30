@@ -10,7 +10,7 @@ const Search = ({ onSearch, errorSearch = '' }) => {
         <View style={[styles.container, styles.viewFDcolumn]}>
             <View style={[styles.search, styles.viewFDrow]}>
                 <TextInput style={styles.input}
-                    placeholder='Search...'
+                    placeholder='Buscar...'
                     value={keyword}
                     onChangeText={setKeyword}
                 />
@@ -38,10 +38,10 @@ const styles = StyleSheet.create({
     input: {
         width: 250,
         fontSize: 18,
-        backgroundColor: colors.pink,
+        backgroundColor: colors.abc3,
         borderRadius: 10,
         paddingLeft: 5,
-        fontFamily: 'Montserrat-Regular'
+        fontFamily: 'NuevaFuenteAPedidoDelTutor'
     },
     search: {
         justifyContent: 'center',

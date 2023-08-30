@@ -1,25 +1,24 @@
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
-import AddButton from "../Components/AddButton";
+import ButtonCustom from "../Components/ButtonCustom";
 import * as ImagePicker from 'expo-image-picker'
 import { useSelector } from "react-redux";
 import { useGetProfileImageQuery } from "../Services/shopServices";
+import { colors } from "../Global/Colors";
 
 const MyProfile = ({ navigation }) => {
-    // const {profileImage, imageCamera} = useSelector(state => state.authReducer.value);
-
-    const { localId, profileImage } = useSelector(state => state.userReducer.value)
+    const { localId, profileImage, email } = useSelector(state => state.userReducer.value)
 
     const { data: image } = useGetProfileImageQuery(localId)
 
     const cameraImage = image?.image
 
     const launchCamera = async () => {
-        navigation.navigate('Image Selector')
+        navigation.navigate('Selector de imagen')
     };
 
     const launchLocation = async () => {
-        navigation.navigate('List Address')
+        navigation.navigate('Direcciones')
     }
 
     return (
@@ -37,8 +36,9 @@ const MyProfile = ({ navigation }) => {
                     resizeMode="cover"
                 />
             )}
-            <AddButton onPress={launchCamera} title="Agrega una foto de perfil" />
-            <AddButton onPress={launchLocation} title="Mi dirección" />
+            <Text style={styles.emailStyle}>Correo electrónico: {email}</Text>
+            <ButtonCustom onPress={launchCamera} title="Agrega una foto de perfil" />
+            <ButtonCustom onPress={launchLocation} title="Mi dirección" />
         </View>
     );
 };
@@ -51,10 +51,16 @@ const styles = StyleSheet.create({
         gap: 15,
         alignItems: "center",
         justifyContent: "flex-start",
+        backgroundColor: colors.abc4,
+        height: '100%',
     },
     image: {
         width: 100,
         height: 100,
         borderRadius: 50,
     },
+    emailStyle: {
+        fontFamily: "NuevaFuenteAPedidoDelTutor",
+        fontSize: 18
+    }
 });

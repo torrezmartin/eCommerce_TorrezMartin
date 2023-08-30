@@ -29,6 +29,7 @@ export default Order
 const styles = StyleSheet.create({
     container: {
         height: '100%',
-        backgroundColor: colors.lightPink,
+        backgroundColor: colors.abc4,
+        height: '100%',
     }
 })

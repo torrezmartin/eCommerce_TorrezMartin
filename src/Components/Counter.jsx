@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
-        backgroundColor: colors.pink,
+        backgroundColor: colors.abc3,
         padding: 10,
     },
     buttonsContainer: {
@@ -70,17 +70,17 @@ const styles = StyleSheet.create({
     },
     button: {
         padding: 10,
-        backgroundColor: colors.lightPink,
+        backgroundColor: colors.abc4,
     },
     span: {
-        backgroundColor: colors.red,
+        backgroundColor: colors.abc1,
         width: "60%",
         padding: 10,
         textAlign: "center",
         fontSize: 20,
     },
     spanInput: {
-        backgroundColor: colors.peach,
+        backgroundColor: colors.abc2,
         width: "60%",
         padding: 10,
         textAlign: "center",
@@ -88,6 +88,6 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         fontSize: 18,
-        fontFamily: "YsabeauOffice-Regular",
+        fontFamily: "NuevaFuenteAPedidoDelTutor",
     },
 });

@@ -45,21 +45,21 @@ const styles = StyleSheet.create({
     subtitle: {
         width: '90%',
         fontSize: 16,
-        fontFamily: 'Montserrat-Regular'
+        fontFamily: 'NuevaFuenteAPedidoDelTutor'
     },
     error: {
         fontSize: 16,
         color: 'red',
-        fontFamily: 'Montserrat-Regular',
+        fontFamily: 'NuevaFuenteAPedidoDelTutor',
         fontStyle: 'italic',
     },
     input: {
         width: '90%',
         borderWidth: 0,
         borderBottomWidth: 3,
-        borderBottomColor: colors.peach,
+        borderBottomColor: colors.abc2,
         padding: 2,
-        fontFamily: 'Montserrat-Regular',
+        fontFamily: 'NuevaFuenteAPedidoDelTutor',
         fontSize: 14,
     }
 })

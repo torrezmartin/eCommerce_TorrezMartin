@@ -1,13 +1,14 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import InputForm from "../Components/InputForm";
-import SubmitButton from "../Components/SubmitButton";
+import ButtonCustom from "../Components/ButtonCustom";
 import { colors } from "../Global/Colors";
 import { useSignUpMutation } from "../Services/authServices";
 import { useDispatch } from "react-redux";
 import { setUser } from "../Features/User/userSlice";
 import { isAtLeastSixCharacters, isValidEmail } from "../Validations/auth";
 import { setUserCart } from "../Features/Cart/cartSlice";
+import { insertSession } from "../SQLite";
 
 const SignupScreen = ({ navigation }) => {
     const [email, setEmail] = useState("");
@@ -93,11 +94,9 @@ const SignupScreen = ({ navigation }) => {
                     error={errorConfirmPassword}
                     isSecure={true}
                 />
-                <SubmitButton onPress={onSubmit} title="Registrarse" />
-                <Text style={styles.sub}>¿Ya tiene una cuenta?</Text>
-                <Pressable onPress={() => navigation.navigate("Login")}>
-                    <Text style={styles.subLink}>Ingresar</Text>
-                </Pressable>
+                <ButtonCustom onPress={onSubmit} title="Registrarse" />
+                <Text style={styles.title}>¿Ya tiene una cuenta?</Text>
+                <ButtonCustom onPress={() => navigation.navigate("Login")} title="Ingresar con una cuenta" />
             </View>
         </View>
     );
@@ -111,29 +110,20 @@ const styles = StyleSheet.create({
         height: "100%",
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: colors.abc5,
     },
     container: {
         width: "90%",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: colors.lightPink,
+        backgroundColor: colors.abc4,
         gap: 15,
         paddingVertical: 20,
         borderRadius: 10,
     },
     title: {
         fontSize: 22,
-        fontFamily: "Montserrat-Regular",
-    },
-    sub: {
-        fontSize: 14,
-        fontFamily: "Montserrat-Regular",
-        color: "black",
-    },
-    subLink: {
-        fontSize: 14,
-        fontFamily: "Montserrat-Regular",
-        color: "blue",
+        fontFamily: "NuevaFuenteAPedidoDelTutor",
     },
 });

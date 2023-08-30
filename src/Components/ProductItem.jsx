@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 5
     },
     textCategory: {
-        fontFamily: 'YsabeauOffice-Regular',
+        fontFamily: 'NuevaFuenteAPedidoDelTutor',
         width: '50%'
     }
 })

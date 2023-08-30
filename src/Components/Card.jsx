@@ -24,11 +24,11 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 8,
-        borderWidth: 2,
+        borderWidth: 1,
         borderColor: 'black',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: colors.red,
+        backgroundColor: colors.abc3,
         marginVertical: 10,
         borderRadius: 8,
     }

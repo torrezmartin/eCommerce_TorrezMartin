@@ -10,7 +10,6 @@ const Home = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            {/* <Counter /> */}
             <FlatList
                 data={categories}
                 keyExtractor={category => category}
@@ -25,7 +24,7 @@ export default Home
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.lightPink,
+        backgroundColor: colors.abc4,
         alignItems: 'center',
         paddingBottom: 10
     }

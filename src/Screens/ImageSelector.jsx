@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Image, View, StyleSheet, Text } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-import AddButton from "../Components/AddButton";
+import ButtonCustom from "../Components/ButtonCustom";
 import { colors } from "../Global/Colors";
 import * as MediaLibrary from "expo-media-library";
 import { usePostProfileImageMutation } from "../Services/shopServices";
@@ -24,16 +24,13 @@ const ImageSelector = ({ navigation }) => {
     };
 
     const pickImage = async () => {
-        //Permission for camera
         const isCameraOk = await verifyCameraPermissions();
 
         if (isCameraOk) {
-            // No permissions request is necessary for launching the image library
             let result = await ImagePicker.launchCameraAsync({
                 mediaTypes: ImagePicker.MediaTypeOptions.All,
                 allowsEditing: true,
                 aspect: [1, 1],
-                //base64: true,
                 quality: 1,
             });
 
@@ -45,17 +42,13 @@ const ImageSelector = ({ navigation }) => {
 
     const confirmImage = async () => {
         try {
-            // Request device storage access permission
             const { status } = await MediaLibrary.requestPermissionsAsync();
             if (status === "granted") {
-                // Save image to media library and create an asset
                 const response = await MediaLibrary.createAssetAsync(image);
-                //Save image link on profileImages remote location
                 triggerSaveImage({
                     image: response.uri,
                     localId: localId,
                 });
-                // Set image on redux state
                 dispatch(saveImage(response.uri));
             }
         } catch (error) {
@@ -68,15 +61,15 @@ const ImageSelector = ({ navigation }) => {
             {image ? (
                 <>
                     <Image source={{ uri: image }} style={styles.image} />
-                    <AddButton title="Tomar otra foto" onPress={pickImage} />
-                    <AddButton title="Confirmar foto" onPress={confirmImage} />
+                    <ButtonCustom title="Tomar otra foto" onPress={pickImage} />
+                    <ButtonCustom title="Confirmar foto" onPress={confirmImage} />
                 </>
             ) : (
                 <>
                     <View style={styles.noPhotoContainer}>
                         <Text>Sin foto a mostrar...</Text>
                     </View>
-                    <AddButton title="Tomar foto" onPress={pickImage} />
+                    <ButtonCustom title="Tomar foto" onPress={pickImage} />
                 </>
             )}
         </View>
@@ -91,7 +84,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "flex-start",
         gap: 20,
-        marginTop: 20,
+        paddingTop: 20,
+        backgroundColor: colors.abc4
     },
     image: {
         width: 200,
@@ -101,7 +95,7 @@ const styles = StyleSheet.create({
         width: 200,
         height: 200,
         borderWidth: 2,
-        borderColor: colors.red,
+        borderColor: colors.abc1,
         padding: 10,
         justifyContent: "center",
         alignItems: "center",

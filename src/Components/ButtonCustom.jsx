@@ -2,7 +2,7 @@ import { Pressable, StyleSheet, Text } from "react-native";
 import React from "react";
 import { colors } from "../Global/Colors";
 
-const SubmitButton = ({ onPress, title }) => {
+const ButtonCustom = ({ onPress, title }) => {
     return (
         <Pressable onPress={onPress} style={styles.button}>
             <Text style={styles.text}>{title}</Text>
@@ -10,11 +10,11 @@ const SubmitButton = ({ onPress, title }) => {
     );
 };
 
-export default SubmitButton;
+export default ButtonCustom;
 
 const styles = StyleSheet.create({
     button: {
-        backgroundColor: colors.red,
+        backgroundColor: colors.abc5,
         borderRadius: 6,
         justifyContent: 'center',
         alignItems: 'center',
@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
         width: '60%'
     },
     text: {
-        color: colors.lightPink,
-        fontFamily: 'Montserrat-Regular',
+        color: colors.abc1,
+        fontFamily: 'NuevaFuenteAPedidoDelTutor',
         fontSize: 22
     },
 });

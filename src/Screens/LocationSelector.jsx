@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import * as Location from "expo-location";
-import AddButton from "../Components/AddButton";
+import ButtonCustom from "../Components/ButtonCustom";
 import { usePostUserLocationMutation } from "../Services/shopServices";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserLocation } from "../Features/User/userSlice";
@@ -40,7 +40,6 @@ const LocationSelector = ({ navigation }) => {
         navigation.goBack()
     }
 
-    //Location requested on mount
     useEffect(() => {
         (async () => {
             try {
@@ -62,7 +61,6 @@ const LocationSelector = ({ navigation }) => {
         })()
     }, [])
 
-    //Reverse geocoding
     useEffect(() => {
         (async () => {
             try {
@@ -94,7 +92,7 @@ const LocationSelector = ({ navigation }) => {
                     <Text style={styles.address}>
                         Dirección formateada: {address}
                     </Text>
-                    <AddButton
+                    <ButtonCustom
                         onPress={onConfirmAddress}
                         title="Confirmar dirección"
                     />
@@ -117,24 +115,26 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "flex-start",
+        backgroundColor: colors.abc4,
+        height: '100%',
     },
     text: {
         paddingTop: 20,
-        fontFamily: 'Montserrat-Regular',
+        fontFamily: 'NuevaFuenteAPedidoDelTutor',
         fontSize: 18
     },
     noLocationContainer: {
         width: 200,
         height: 200,
         borderWidth: 2,
-        borderColor: colors.peach,
+        borderColor: colors.abc2,
         padding: 10,
         justifyContent: "center",
         alignItems: "center",
     },
     address: {
         padding: 10,
-        fontFamily: "Montserrat-Regular",
+        fontFamily: "NuevaFuenteAPedidoDelTutor",
         fontSize: 16,
     },
 });

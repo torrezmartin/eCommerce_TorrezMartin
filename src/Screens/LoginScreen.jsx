@@ -1,7 +1,7 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
 import InputForm from '../Components/InputForm'
-import SubmitButton from '../Components/SubmitButton'
+import ButtonCustom from '../Components/ButtonCustom'
 import { colors } from '../Global/Colors'
 import { isAtLeastSixCharacters, isValidEmail } from '../Validations/auth'
 import { useState } from 'react'
@@ -87,14 +87,15 @@ const LoginScreen = ({ navigation }) => {
                     error={errorPassword}
                     isSecure={true}
                 />
-                <SubmitButton
+                <ButtonCustom
                     onPress={onSubmit}
                     title="Ingresar"
                 />
-                <Text style={styles.sub}>¿No tiene una cuenta?</Text>
-                <Pressable onPress={() => navigation.navigate('Signup')}>
-                    <Text style={styles.subLink}>Registrarse</Text>
-                </Pressable>
+                <Text style={styles.title}>¿No tiene una cuenta?</Text>
+                <ButtonCustom
+                    onPress={() => navigation.navigate('Signup')}
+                    title="Registrarse"
+                />
             </View>
         </View>
     )
@@ -107,30 +108,21 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: colors.abc5,
     },
     container: {
         width: '90%',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: colors.lightPink,
+        backgroundColor: colors.abc4,
         gap: 15,
         paddingVertical: 20,
         borderRadius: 10,
     },
     title: {
         fontSize: 22,
-        fontFamily: 'Montserrat-Regular'
+        fontFamily: 'NuevaFuenteAPedidoDelTutor'
     },
-    sub: {
-        fontSize: 14,
-        color: 'black',
-        fontFamily: 'Montserrat-Regular'
-    },
-    subLink: {
-        fontSize: 14,
-        color: 'blue',
-        fontFamily: 'Montserrat-Regular'
-    }
 })

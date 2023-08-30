@@ -8,7 +8,6 @@ import { useGetProductsByCategoryQuery } from '../Services/shopServices'
 
 const ItemListCategory = ({ navigation, route }) => {
     const category = useSelector(state => state.shopReducer.value.categorySelected)
-    //const productsSelected = useSelector(state => state.shopReducer.value.productsSelected)
     const { data: productsSelected, isLoading, isError } = useGetProductsByCategoryQuery(category);
 
     const [products, setProducts] = useState([])
@@ -53,7 +52,7 @@ export default ItemListCategory
 const styles = StyleSheet.create({
     container: {
         height: '100%',
-        backgroundColor: colors.lightPink,
+        backgroundColor: colors.abc4,
         alignItems: 'center',
         paddingBottom: 10
     }

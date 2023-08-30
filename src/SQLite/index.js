@@ -1,9 +1,7 @@
 import * as SQLite from 'expo-sqlite'
 
-//Generar un archivo (Win: Documents)
 const db = SQLite.openDatabase('sessions.db')
 
-//Inicializar la tabla
 export const init = () => {
     const promise = new Promise((res, rej) => {
         db.transaction(tx => {
@@ -18,7 +16,6 @@ export const init = () => {
     return promise
 }
 
-//Borrar la tabla sessions
 export const dropTableSessions = () => {
     const promise = new Promise((res, rej) => {
         db.transaction(tx => {

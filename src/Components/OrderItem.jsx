@@ -12,7 +12,7 @@ const OrderItem = ({ order }) => {
                 </Text>
                 <Text style={styles.text2}>${order.total}</Text>
             </View>
-            <Feather name="search" size={30} color="black" />
+            <Feather name="search" size={30} color={colors.abc5} />
         </View>
     );
 };
@@ -22,10 +22,10 @@ export default OrderItem;
 const styles = StyleSheet.create({
     card: {
         height: 100,
-        backgroundColor: colors.red,
+        backgroundColor: colors.abc3,
         padding: 10,
         margin: 10,
-        borderWidth: 2,
+        borderWidth: 1,
         borderRadius: 10,
         flexDirection: "row",
         justifyContent: "space-between",
@@ -38,14 +38,14 @@ const styles = StyleSheet.create({
         alignItems: "flex-start",
     },
     text: {
-        fontFamily: "YsabeauOffice-Regular",
+        fontFamily: "NuevaFuenteAPedidoDelTutor",
         fontSize: 17,
-        color: "black",
+        color: colors.abc5,
     },
     text2: {
-        fontFamily: "YsabeauOffice-Regular",
+        fontFamily: "NuevaFuenteAPedidoDelTutor",
         fontSize: 19,
         fontWeight: 'bold',
-        color: "black",
+        color: colors.abc5,
     },
 });

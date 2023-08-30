@@ -6,7 +6,7 @@ import { colors } from "../Global/Colors";
 const AddressItem = ({ location, navigation }) => {
 
     const onChangeLocation = () => {
-        navigation.navigate('Location Selector')
+        navigation.navigate('Selector de ubicación')
     }
 
     return (
@@ -17,7 +17,7 @@ const AddressItem = ({ location, navigation }) => {
                 </Text>
             </View>
             <Pressable onPress={onChangeLocation}>
-                <Entypo name="location" size={30} color="black">
+                <Entypo name="location" size={30} color={colors.abc5}>
                     <Text style={styles.text2}>Cambiar</Text>
                 </Entypo>
             </Pressable>
@@ -30,10 +30,10 @@ export default AddressItem;
 const styles = StyleSheet.create({
     card: {
         height: 100,
-        backgroundColor: colors.red,
+        backgroundColor: colors.abc3,
         padding: 10,
         margin: 10,
-        borderWidth: 2,
+        borderWidth: 1,
         borderRadius: 10,
         flexDirection: "row",
         justifyContent: "space-between",
@@ -46,13 +46,13 @@ const styles = StyleSheet.create({
         alignItems: "flex-start",
     },
     text: {
-        fontFamily: "Montserrat-Regular",
+        fontFamily: "NuevaFuenteAPedidoDelTutor",
         fontSize: 17,
-        color: "black",
+        color: colors.abc5,
     },
     text2: {
-        fontFamily: "Montserrat-Regular",
+        fontFamily: "NuevaFuenteAPedidoDelTutor",
         fontSize: 19,
-        color: colors.pink,
+        color: colors.abc5,
     },
 });

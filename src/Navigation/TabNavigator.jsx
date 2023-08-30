@@ -25,7 +25,7 @@ const TabNavigator = () => {
                     tabBarIcon: ({ focused }) => {
                         return (
                             <View>
-                                <Entypo name="shop" size={24} color={focused ? "black" : "gray"} />
+                                <Entypo name="shop" size={24} color={focused ? colors.abc1 : colors.abc4} />
                             </View>
                         );
                     }
@@ -35,7 +35,7 @@ const TabNavigator = () => {
                     tabBarIcon: ({ focused }) => {
                         return (
                             <View>
-                                <Feather name="shopping-cart" size={24} color={focused ? "black" : "gray"} />
+                                <Feather name="shopping-cart" size={24} color={focused ? colors.abc1 : colors.abc4} />
                             </View>
                         );
                     }
@@ -45,7 +45,7 @@ const TabNavigator = () => {
                     tabBarIcon: ({ focused }) => {
                         return (
                             <View>
-                                <Feather name="list" size={24} color={focused ? "black" : "gray"} />
+                                <Feather name="list" size={24} color={focused ? colors.abc1 : colors.abc4} />
                             </View>
                         );
                     }
@@ -55,7 +55,7 @@ const TabNavigator = () => {
                     tabBarIcon: ({ focused }) => {
                         return (
                             <View style={styles.item}>
-                                <Ionicons name="person-circle-outline" size={24} color={focused ? 'black' : 'gray'} />
+                                <Ionicons name="person-circle-outline" size={24} color={focused ? colors.abc1 : colors.abc4} />
                             </View>
                         );
                     },
@@ -69,7 +69,7 @@ export default TabNavigator
 
 const styles = StyleSheet.create({
     tabBarSt: {
-        backgroundColor: colors.lightPink,
+        backgroundColor: colors.abc5,
         height: 90
     }
 })
