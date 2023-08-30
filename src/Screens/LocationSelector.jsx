@@ -78,10 +78,7 @@ const LocationSelector = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <Text
-                style={styles.text}
-            >Mi dirección</Text>
-            {/* Flatlist con las directions */}
+            <Text style={styles.text}>Mi dirección</Text>
             {location ? (
                 <>
                     <Text
