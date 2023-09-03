@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
         alignItems: "flex-start",
     },
     text: {
-        fontFamily: "NuevaFuenteAPedidoDelTutor",
+        fontFamily: "fontToUse",
         fontSize: 19,
         color: colors.abc5,
     },
     text2: {
-        fontFamily: "NuevaFuenteAPedidoDelTutor",
+        fontFamily: "fontToUse",
         fontSize: 14,
         color: colors.abc5,
     },

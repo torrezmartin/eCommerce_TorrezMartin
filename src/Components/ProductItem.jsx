@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 5
     },
     textCategory: {
-        fontFamily: 'NuevaFuenteAPedidoDelTutor',
+        fontFamily: 'fontToUse',
         width: '50%'
     }
 })

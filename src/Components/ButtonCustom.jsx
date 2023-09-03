@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     },
     text: {
         color: colors.abc1,
-        fontFamily: 'NuevaFuenteAPedidoDelTutor',
+        fontFamily: 'fontToUse',
         fontSize: 22
     },
 });

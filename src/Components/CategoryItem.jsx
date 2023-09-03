@@ -25,6 +25,6 @@ export default CategoryItem
 const styles = StyleSheet.create({
     textCategory: {
         fontSize: 18,
-        fontFamily: 'NuevaFuenteAPedidoDelTutor'
+        fontFamily: 'fontToUse'
     }
 })

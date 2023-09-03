@@ -72,6 +72,6 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 25,
-        fontFamily: 'NuevaFuenteAPedidoDelTutor'
+        fontFamily: 'fontToUse'
     }
 })

@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     },
     text: {
         paddingTop: 20,
-        fontFamily: 'NuevaFuenteAPedidoDelTutor',
+        fontFamily: 'fontToUse',
         fontSize: 18
     },
     noLocationContainer: {
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     },
     address: {
         padding: 10,
-        fontFamily: "NuevaFuenteAPedidoDelTutor",
+        fontFamily: "fontToUse",
         fontSize: 16,
     },
 });

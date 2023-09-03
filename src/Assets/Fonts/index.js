@@ -1,3 +1,3 @@
 export const fonts = {
-    'NuevaFuenteAPedidoDelTutor': require('../Fonts/Abel-Regular.ttf'),
+    'fontToUse': require('../Fonts/Abel-Regular.ttf'),
 }

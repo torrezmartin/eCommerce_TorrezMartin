@@ -123,6 +123,6 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 22,
-        fontFamily: 'NuevaFuenteAPedidoDelTutor'
+        fontFamily: 'fontToUse'
     },
 })

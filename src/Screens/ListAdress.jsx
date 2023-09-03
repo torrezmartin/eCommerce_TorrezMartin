@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     },
     text: {
         paddingVertical: 20,
-        fontFamily: 'NuevaFuenteAPedidoDelTutor',
+        fontFamily: 'fontToUse',
         fontSize: 18,
         color: colors.abc5
     }

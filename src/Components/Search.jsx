@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.abc3,
         borderRadius: 10,
         paddingLeft: 5,
-        fontFamily: 'NuevaFuenteAPedidoDelTutor'
+        fontFamily: 'fontToUse'
     },
     search: {
         justifyContent: 'center',

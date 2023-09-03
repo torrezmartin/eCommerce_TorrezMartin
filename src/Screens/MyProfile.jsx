@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
         borderRadius: 50,
     },
     emailStyle: {
-        fontFamily: "NuevaFuenteAPedidoDelTutor",
+        fontFamily: "fontToUse",
         fontSize: 18
     }
 });

@@ -45,12 +45,12 @@ const styles = StyleSheet.create({
     subtitle: {
         width: '90%',
         fontSize: 16,
-        fontFamily: 'NuevaFuenteAPedidoDelTutor'
+        fontFamily: 'fontToUse'
     },
     error: {
         fontSize: 16,
         color: 'red',
-        fontFamily: 'NuevaFuenteAPedidoDelTutor',
+        fontFamily: 'fontToUse',
         fontStyle: 'italic',
     },
     input: {
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 3,
         borderBottomColor: colors.abc2,
         padding: 2,
-        fontFamily: 'NuevaFuenteAPedidoDelTutor',
+        fontFamily: 'fontToUse',
         fontSize: 14,
     }
 })

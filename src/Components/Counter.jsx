@@ -88,6 +88,6 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         fontSize: 18,
-        fontFamily: "NuevaFuenteAPedidoDelTutor",
+        fontFamily: "fontToUse",
     },
 });
